@@ -133,11 +133,11 @@ bool cInverter::query(const char *cmd, int replysize) {
 
         if (buf[0]!='(' || buf[replysize-1]!=0x0d) {
             lprintf("INVERTER: %s: incorrect start/stop bytes.  Buffer: %s", cmd, buf);
-            return false;
+            //return false;
         }
         if (!(CheckCRC(buf, replysize))) {
             lprintf("INVERTER: %s: CRC Failed!  Reply size: %d  Buffer: %s", cmd, replysize, buf);
-            return false;
+            //return false;
         }
 
         buf[i-3] = '\0'; //nullterminating on first CRC byte
@@ -176,7 +176,7 @@ void cInverter::poll() {
 
         // Reading QPIRI status
         if (!ups_qpiri_changed) {
-            if (query("QPIRI", 97)) {
+            if (query("QPIRI", 104)) {
                 m.lock();
                 strcpy(status2, (const char*)buf+1);
                 m.unlock();
@@ -186,7 +186,7 @@ void cInverter::poll() {
 
         // Get any device warnings...
         if (!ups_qpiws_changed) {
-            if (query("QPIWS", 36)) {
+            if (query("QPIWS", 40)) {
                 m.lock();
                 strcpy(warnings, (const char*)buf+1);
                 m.unlock();
