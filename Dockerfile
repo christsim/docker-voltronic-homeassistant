@@ -1,4 +1,6 @@
-FROM debian:stretch
+#FROM debian:stretch
+## for raspberry pi
+FROM raspbian/stretch
 
 RUN apt update && apt install -y \
         curl \
