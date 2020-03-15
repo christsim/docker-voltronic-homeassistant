@@ -84,9 +84,9 @@ _(see [protocol manual](http://forums.aeva.asn.au/uploads/293/HS_MS_MSX_RS232_Pr
 ```
 DESCRIPTION:                PAYLOAD:  OPTIONS:
 ----------------------------------------------------------------
-Set output source priority  POP00     (Utility first)
-                            POP01     (Solar first)
-                            POP02     (SBU)
+Set output source priority  POP00     (Utility Solar Battery)
+                            POP01     (Solar Utility Battery)
+                            POP02     (Solar Battery Utility)
 
 Set charger priority        PCP00     (Utility first)
                             PCP01     (Solar first)
